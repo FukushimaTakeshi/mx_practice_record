@@ -1,0 +1,27 @@
+<% provide(:title, 'Sing up') %>
+<h1>Sing up</h1>
+<p>Find me in app/views/users/new.html.erb</p>
+
+<%= form_for @user do |f| %>
+  <% if @user.errors.any? %>
+    <div>
+      <strong>入力内容にエラーがあります</strong>
+      <ul>
+        <% @user.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <%= f.label :email %>
+  <%= f.text_field :email %>
+
+  <%= f.label :password %>
+  <%= f.text_field :password %>
+
+  <%= f.submit '登録' %>
+<% end %>
